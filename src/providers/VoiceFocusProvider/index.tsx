@@ -153,6 +153,7 @@ const VoiceFocusProvider: React.FC<Props> = ({
         // A different request arrived afterwards. Drop this one on the floor
         // using the cancellation mechanism of `useEffect`.
         if (canceled()) {
+          console.log(`createVoiceFocusDeviceTransformer cancelled`);
           return;
         }
 
@@ -162,6 +163,7 @@ const VoiceFocusProvider: React.FC<Props> = ({
         setIsVoiceFocusSupported(transformer && transformer.isSupported());
       })
       .catch((e) => {
+        console.error(`createVoiceFocusDeviceTransformer error occurred`, e);
         if (canceled()) {
           return;
         }
@@ -181,6 +183,7 @@ const VoiceFocusProvider: React.FC<Props> = ({
     canceled: () => boolean,
     createMeetingResponse: JoinMeetingInfo | undefined
   ) {
+    console.log(`initVoiceFocus`);
     // Throw away the old one and reinitialize.
     voiceFocusDevice?.stop();
     if (voiceFocusTransformer) {
