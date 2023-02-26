@@ -4,11 +4,6 @@
   "description": "Amazon Chime SDK Component Library - React",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
-  "files": [
-    "lib",
-    "CHANGELOG.md",
-    "NOTICE"
-  ],
   "engines": {
     "node": "^12 || ^14 || ^15 || ^16 || ^18",
     "npm": "^6 || ^7 || ^8"
